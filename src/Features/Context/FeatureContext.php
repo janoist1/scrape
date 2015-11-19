@@ -133,7 +133,7 @@ class FeatureContext extends \PHPUnit_Framework_TestCase implements Context, Sni
             // set up the provider
             $this->mockHttpClientProvider
                 ->expects($this->at($i))
-                ->method('provideCurlClient')
+                ->method('provideClient')
                 ->will($this->returnValue($httpClient));
         }
     }

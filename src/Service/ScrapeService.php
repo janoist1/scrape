@@ -32,7 +32,7 @@ class ScrapeService
     private $httpClientProvider;
 
     /**
-     * constructor - depends on HttpClientProvider
+     * constructor - depends on CurlHttpClientProvider
      *
      * @param HttpClientProviderInterface $httpClientProvider
      */
@@ -131,7 +131,7 @@ class ScrapeService
     private function fetchPageContent($url)
     {
         // get a http client
-        $httpClient = $this->httpClientProvider->provideCurlClient($url);
+        $httpClient = $this->httpClientProvider->provideClient($url);
 
         try {
             $httpClient->sendRequest();

@@ -2,7 +2,7 @@
 
 namespace Sainsburys\TechTest;
 
-use Sainsburys\TechTest\HttpClient\Provider\HttpClientProvider;
+use Sainsburys\TechTest\HttpClient\Provider\CurlHttpClientProvider;
 use Sainsburys\TechTest\HttpClient\Provider\HttpClientProviderInterface;
 use Symfony\Component\Console\Application;
 use Sainsburys\TechTest\Service\ScrapeService;
@@ -20,7 +20,7 @@ class TechTest extends Application
     const APP_VERSION = '1.0';
 
     /**
-     * constructor - inject HttpClientProvider if necessary (ex. for testing)
+     * constructor - inject CurlHttpClientProvider if necessary (ex. for testing)
      *
      * @param HttpClientProviderInterface $httpClientProvider
      */
@@ -29,7 +29,7 @@ class TechTest extends Application
         parent::__construct(self::APP_NAME, self::APP_VERSION);
 
         if ($httpClientProvider === null) {
-            $httpClientProvider = new HttpClientProvider();
+            $httpClientProvider = new CurlHttpClientProvider();
         }
 
         $this->add(new ScrapeCommand(new ScrapeService($httpClientProvider)));

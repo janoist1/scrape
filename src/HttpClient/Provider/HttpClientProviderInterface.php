@@ -16,5 +16,5 @@ interface HttpClientProviderInterface
      * @param string $url
      * @return HttpClientInterface
      */
-    public function provideCurlClient($url = null);
+    public function provideClient($url = null);
 }
