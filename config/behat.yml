@@ -1,0 +1,5 @@
+default:
+    suites:
+        default:
+            paths:    [ %paths.base%/../src/Features ]
+            contexts: [ Sainsburys\TechTest\Features\Context\FeatureContext ]
